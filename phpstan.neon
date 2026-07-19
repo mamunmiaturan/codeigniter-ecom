@@ -1,0 +1,50 @@
+includes:
+    # 26 pre-existing issues (mostly PHPDoc in the vendored Recaptcha lib) are
+    # frozen here so CI fails only on NEW problems. Shrink this over time.
+    - phpstan-baseline.neon
+
+parameters:
+    level: 5
+    paths:
+        - application/controllers
+        - application/core
+        - application/helpers
+        - application/libraries
+        - application/models
+        - application/services
+        - database
+    excludePaths:
+        analyse:
+            # CI framework code and generated/scaffolded output are not ours to fix.
+            - application/views/layout/sidebar/*
+    bootstrapFiles:
+        - tests/bootstrap.php
+    # CI3 has no autoloader for its own core/helpers, so PHPStan cannot discover
+    # CI_Controller, CI_Model, is_cli(), url_title() etc. without scanning system/.
+    scanDirectories:
+        - system/core
+        - system/helpers
+        - system/database
+        - system/libraries
+    # Constants + role IDs are defined here and included by CI at bootstrap.
+    scanFiles:
+        - application/config/constants.php
+    treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # CI3 attaches loaded models/libraries onto the controller/model
+        # super-object at runtime via CI_Loader, so PHPStan cannot see them.
+        # CI_Controller is declared #[AllowDynamicProperties] (system/core/Controller.php:52),
+        # i.e. this is the framework's intended idiom, not a defect.
+        - '#Access to an undefined property [A-Za-z0-9_\\]+::\$[A-Za-z0-9_]+_model#'
+        - '#Access to an undefined property [A-Za-z0-9_\\]+::\$(db|dbforge|dbutil|input|output|session|load|form_validation|upload|uri|router|config|security|lang|email|image_lib|cache|data|main_menu)\.#'
+        - '#Access to an undefined property [A-Za-z0-9_\\]+::\$(app_lib|redis_lib|pusher_lib|queue|jwt|totp|recaptcha|audit_chain|api_rate_limiter|auth_service|user_service)\.#'
+        # DB rows are hydrated as stdClass; column access cannot be typed.
+        - '#Access to an undefined property object::\$[A-Za-z0-9_]+#'
+        # CI3's redirect() ends in exit (system/helpers/url_helper.php:567), which
+        # PHPStan cannot infer, so it thinks the early-return branch falls through.
+        - '#Variable \$[a-zA-Z_]+ might not be defined#'
+        # bootstrapFiles defines ENVIRONMENT as 'testing', so PHPStan evaluates every
+        # `ENVIRONMENT === production|development` guard as a constant comparison.
+        # The guards are correct at runtime; only the analysis-time value is fixed.
+        - '#(Strict comparison using === between .(testing|production|development). and .(testing|production|development).|Result of && is always (false|true))#'

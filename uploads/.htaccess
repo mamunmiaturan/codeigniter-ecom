@@ -1,0 +1,16 @@
+# Disable script execution in uploads directory to prevent RCE
+<FilesMatch "\.(php|php3|php4|php5|phtml|phps|pl|py|jsp|asp|sh|cgi)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Turn off PHP Engine for apache modules
+<IfModule mod_php5.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>

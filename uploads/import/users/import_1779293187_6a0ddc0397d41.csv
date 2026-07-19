@@ -1,0 +1,3 @@
+Name,Email,Mobile,Password,Gender,Blood_Group,Role_ID
+"John Doe",john@example.com,01711223344,12345678aA@,Male,O+,2
+"Jane Doe",jane@example.com,01811223344,12345678aA@,Female,A-,2

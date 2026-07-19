@@ -1,0 +1,236 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Variable \\$order in empty\\(\\) always exists and is not falsy\\.$#"
+			count: 1
+			path: application/controllers/admin/Order.php
+
+		-
+			message: "#^Method Systemlog\\:\\:_resolve_path\\(\\) never returns null so it can be removed from the return type\\.$#"
+			count: 1
+			path: application/controllers/admin/Systemlog.php
+
+		-
+			message: "#^Call to method back\\(\\) on an unknown class Login_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Account.php
+
+		-
+			message: "#^Call to method back\\(\\) on an unknown class Register_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Account.php
+
+		-
+			message: "#^Call to method first_error\\(\\) on an unknown class Login_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Account.php
+
+		-
+			message: "#^Call to method first_error\\(\\) on an unknown class Register_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Account.php
+
+		-
+			message: "#^Call to method validate\\(\\) on an unknown class Login_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Account.php
+
+		-
+			message: "#^Call to method validate\\(\\) on an unknown class Register_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Account.php
+
+		-
+			message: "#^Instantiated class Login_Request not found\\.$#"
+			count: 1
+			path: application/controllers/landing/Account.php
+
+		-
+			message: "#^Instantiated class Register_Request not found\\.$#"
+			count: 1
+			path: application/controllers/landing/Account.php
+
+		-
+			message: "#^Call to method back\\(\\) on an unknown class Checkout_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Call to method back\\(\\) on an unknown class Contact_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Call to method first_error\\(\\) on an unknown class Checkout_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Call to method first_error\\(\\) on an unknown class Contact_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Call to method first_error\\(\\) on an unknown class Review_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Call to method first_error\\(\\) on an unknown class Subscribe_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Call to method validate\\(\\) on an unknown class Checkout_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Call to method validate\\(\\) on an unknown class Contact_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Call to method validate\\(\\) on an unknown class Review_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Call to method validate\\(\\) on an unknown class Subscribe_Request\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Instantiated class Checkout_Request not found\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Instantiated class Contact_Request not found\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Instantiated class Review_Request not found\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Instantiated class Subscribe_Request not found\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^Method Landing\\:\\:_token\\(\\) is unused\\.$#"
+			count: 1
+			path: application/controllers/landing/Landing.php
+
+		-
+			message: "#^While loop condition is always true\\.$#"
+			count: 1
+			path: application/controllers/system/Queue.php
+
+		-
+			message: "#^Method MY_Security\\:\\:csrf_set_cookie\\(\\) should return CI_Security but returns false\\.$#"
+			count: 1
+			path: application/core/MY_Security.php
+
+		-
+			message: "#^Access to an undefined property CI_Controller\\:\\:\\$encryption\\.$#"
+			count: 1
+			path: application/helpers/general_helper.php
+
+		-
+			message: "#^Call to function is_null\\(\\) with mixed will always evaluate to false\\.$#"
+			count: 1
+			path: application/helpers/general_helper.php
+
+		-
+			message: "#^Function loggedin_branch_id\\(\\) never returns int so it can be removed from the return type\\.$#"
+			count: 1
+			path: application/helpers/general_helper.php
+
+		-
+			message: "#^If condition is always true\\.$#"
+			count: 1
+			path: application/helpers/unzip_helper.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(String  The path that should be created\\)\\: Unexpected token \"The\", expected variable at offset 103$#"
+			count: 1
+			path: application/helpers/unzip_helper.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(mixed\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 120$#"
+			count: 1
+			path: application/libraries/MY_Form_validation.php
+
+		-
+			message: "#^Method MY_Migration\\:\\:find_migrations\\(\\) should return array but returns false\\.$#"
+			count: 1
+			path: application/libraries/MY_Migration.php
+
+		-
+			message: "#^Method Recaptcha\\:\\:_submitHTTPGet\\(\\) should return array but returns bool\\|string\\.$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^Method Recaptcha\\:\\:getScriptTag\\(\\) has invalid return type scripts\\.$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^Method Recaptcha\\:\\:getScriptTag\\(\\) should return scripts but returns string\\.$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^Method Recaptcha\\:\\:getWidget\\(\\) has invalid return type scripts\\.$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^Method Recaptcha\\:\\:getWidget\\(\\) should return scripts but returns string\\.$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^Method Recaptcha\\:\\:verifyResponse\\(\\) has invalid return type ReCaptchaResponse\\.$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^Method Recaptcha\\:\\:verifyResponse\\(\\) should return ReCaptchaResponse but returns array\\<string, mixed\\>\\.$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^Method Recaptcha\\:\\:verifyResponse\\(\\) should return ReCaptchaResponse but returns array\\<string, string\\|false\\>\\.$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(array parameters\\.\\)\\: Unexpected token \"parameters\", expected variable at offset 139$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(array parameters\\.\\)\\: Unexpected token \"parameters\", expected variable at offset 225$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, array given\\.$#"
+			count: 1
+			path: application/libraries/Recaptcha.php
+
+		-
+			message: "#^Method Module_model\\:\\:insert\\(\\) should return false but returns true\\.$#"
+			count: 1
+			path: application/models/Module_model.php
+
+		-
+			message: "#^Left side of && is always true\\.$#"
+			count: 1
+			path: database/seeders/WomenChildCatalogSeeder.php

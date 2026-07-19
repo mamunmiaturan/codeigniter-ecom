@@ -1,0 +1,14 @@
+.env
+application/config/database.php
+
+# AI-generated logs folder
+application/logs/
+
+# PHPUnit result cache (build state, not source)
+.phpunit.cache/
+.phpunit.result.cache
+
+# Runtime permission cache — regenerated per role by the app
+application/cache/
+# Regenerable translation cache — rebuilt from the `languages` DB table
+application/language/*/*.json

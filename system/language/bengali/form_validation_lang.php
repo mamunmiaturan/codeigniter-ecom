@@ -1,0 +1,34 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['form_validation_required']             = '{field} ফিল্ডটি অবশ্যই পূরণ করতে হবে।';
+$lang['form_validation_isset']                = '{field} ফিল্ডে একটি মান থাকতে হবে।';
+$lang['form_validation_valid_email']          = '{field} ফিল্ডে একটি বৈধ ইমেইল ঠিকানা থাকতে হবে।';
+$lang['form_validation_valid_emails']         = '{field} ফিল্ডে সবগুলো বৈধ ইমেইল ঠিকানা থাকতে হবে।';
+$lang['form_validation_valid_url']            = '{field} ফিল্ডে একটি বৈধ URL থাকতে হবে।';
+$lang['form_validation_valid_ip']             = '{field} ফিল্ডে একটি বৈধ IP থাকতে হবে।';
+$lang['form_validation_valid_base64']         = '{field} ফিল্ডে একটি বৈধ Base64 স্ট্রিং থাকতে হবে।';
+$lang['form_validation_min_length']           = '{field} ফিল্ডটি কমপক্ষে {param} অক্ষরের হতে হবে।';
+$lang['form_validation_max_length']           = '{field} ফিল্ডটি সর্বোচ্চ {param} অক্ষরের বেশি হতে পারে না।';
+$lang['form_validation_exact_length']         = '{field} ফিল্ডটির দৈর্ঘ্য অবশ্যই {param} অক্ষর হতে হবে।';
+$lang['form_validation_alpha']                 = '{field} ফিল্ডে কেবলমাত্র অক্ষর থাকতে পারে।';
+$lang['form_validation_alpha_numeric']         = '{field} ফিল্ডে কেবলমাত্র অক্ষর এবং সংখ্যা থাকতে পারে।';
+$lang['form_validation_alpha_numeric_spaces']  = '{field} ফিল্ডে কেবলমাত্র অক্ষর, সংখ্যা এবং স্পেস থাকতে পারে।';
+$lang['form_validation_alpha_dash']            = '{field} ফিল্ডে কেবলমাত্র অক্ষর, সংখ্যা, আন্ডারস্কোর (_) এবং ড্যাশ (-) থাকতে পারে।';
+$lang['form_validation_numeric']               = '{field} ফিল্ডে কেবলমাত্র সংখ্যা থাকতে হবে।';
+$lang['form_validation_is_numeric']            = '{field} ফিল্ডে কেবলমাত্র সংখ্যাসূচক অক্ষর থাকতে হবে।';
+$lang['form_validation_integer']               = '{field} ফিল্ডে একটি পূর্ণসংখ্যা থাকতে হবে।';
+$lang['form_validation_regex_match']           = '{field} ফিল্ডের ফরম্যাট সঠিক নয়।';
+$lang['form_validation_matches']               = '{field} ফিল্ডটি {param} ফিল্ডের সাথে মিলছে না।';
+$lang['form_validation_differs']               = '{field} ফিল্ডটি {param} ফিল্ড থেকে আলাদা হতে হবে।';
+$lang['form_validation_is_unique']             = '{field} ফিল্ডে একটি ইউনিক মান থাকতে হবে।';
+$lang['form_validation_is_unique_except']      = '{field} ফিল্ডে একটি ইউনিক মান থাকতে হবে।';
+$lang['form_validation_is_natural']            = '{field} ফিল্ডে শুধুমাত্র ডিজিট থাকতে পারে।';
+$lang['form_validation_is_natural_no_zero']    = '{field} ফিল্ডে শুধুমাত্র ডিজিট থাকতে পারে এবং তা শূন্য থেকে বড় হতে হবে।';
+$lang['form_validation_decimal']               = '{field} ফিল্ডে একটি দশমিক সংখ্যা থাকতে হবে।';
+$lang['form_validation_less_than']             = '{field} ফিল্ডে এমন একটি সংখ্যা থাকতে হবে যা {param} এর চেয়ে কম।';
+$lang['form_validation_less_than_equal_to']    = '{field} ফিল্ডে এমন একটি সংখ্যা থাকতে হবে যা {param} এর সমান অথবা কম।';
+$lang['form_validation_greater_than']          = '{field} ফিল্ডে এমন একটি সংখ্যা থাকতে হবে যা {param} এর চেয়ে বেশি।';
+$lang['form_validation_greater_than_equal_to'] = '{field} ফিল্ডে এমন একটি সংখ্যা থাকতে হবে যা {param} এর সমান অথবা বেশি।';
+$lang['form_validation_error_message_not_set'] = '{field} ফিল্ডের জন্য কোনো এরর মেসেজ সেট করা নেই।';
+$lang['form_validation_in_list']                = '{field} ফিল্ডটি অবশ্যই নিম্নলিখিতগুলোর মধ্যে একটি হতে হবে: {param}।';

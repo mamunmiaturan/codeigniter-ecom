@@ -1,0 +1,258 @@
+<section class="panel">
+	<?php echo form_open_multipart(base_url('user/' . route_hash('store'))); ?>	<div class="panel-heading">
+		<h4 class="panel-title">
+			<i class="far fa-user-circle"></i> <?php echo translate('add_user'); ?>
+		</h4>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('name')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('name'); ?> <span class="required">*</span></label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="far fa-user"></i></span>
+						<input class="form-control" name="name" type="text" value="<?php echo set_value('name'); ?>">
+					</div>
+					<span class="error"><?php echo form_error('name'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('mobile_no')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('mobile_no'); ?> <span class="required">*</span></label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fas fa-phone-volume"></i></span>
+						<input class="form-control" name="mobile_no" type="text" value="<?php echo set_value('mobile_no'); ?>">
+					</div>
+					<span class="error"><?php echo form_error('mobile_no'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('email')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('email'); ?> <span class="required">*</span></label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="far fa-envelope-open"></i></span>
+						<input type="text" class="form-control" name="email" id="email" value="<?php echo set_value('email'); ?>" />
+					</div>
+					<span class="error"><?php echo form_error('email'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('dob')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('date_of_birth'); ?> </label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fas fa-birthday-cake"></i></span>
+						<input type="text" class="form-control" id="dob" name="dob" value="<?php echo set_value('dob'); ?>" data-plugin-datepicker data-plugin-options='{ "startView": 2 }'>
+					</div>
+					<span class="error"><?php echo form_error('dob'); ?></span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('gender')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('gender'); ?></label>
+					<?php
+					$gender_array = $this->app_lib->get_gender();
+					echo form_dropdown("gender", $gender_array, set_value('gender'), "class='form-control' data-plugin-selectTwo data-width='100%'
+									data-minimum-results-for-search='Infinity'");
+					?>
+					<span class="error"><?php echo form_error('gender'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('blood_group')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('blood_group'); ?></label>
+					<?php
+					$bloodarray = $this->app_lib->get_blood_group();
+					echo form_dropdown("blood_group", $bloodarray, set_value("blood_group"), "class='form-control' data-plugin-selectTwo
+									data-width='100%' data-minimum-results-for-search='Infinity' ");
+					?>
+					<span class="error"><?php echo form_error('blood_group'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('religion')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('religion'); ?></label>
+					<?php
+					$religion_array = $this->app_lib->get_religion();
+					echo form_dropdown("religion", $religion_array, set_value("religion"), "class='form-control' data-plugin-selectTwo
+									data-width='100%' data-minimum-results-for-search='Infinity'");
+					?>
+					<span class="error"><?php echo form_error('religion'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('marital_status')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('marital_status'); ?></label>
+					<?php
+					$marital_array = $this->app_lib->get_marital_status();
+					echo form_dropdown("marital_status", $marital_array, set_value("marital_status"), "class='form-control' data-plugin-selectTwo
+									data-width='100%' data-minimum-results-for-search='Infinity' ");
+					?>
+					<span class="error"><?php echo form_error('marital_status'); ?></span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 mb-sm">
+				<div class="form-group">
+					<label class="control-label"><?php echo translate('age'); ?></label>
+					<input type="text" class="form-control" id="age" name="age" value="0" readonly>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('educational_qualification')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('educational_qualification'); ?></label>
+					<?php
+					$education_array = $this->app_lib->get_education_level();
+					echo form_dropdown("educational_qualification", $education_array, set_value("educational_qualification"), "class='form-control' data-plugin-selectTwo
+									data-width='100%' data-minimum-results-for-search='Infinity' ");
+					?>
+					<span class="error"><?php echo form_error('educational_qualification'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('nationality')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('nationality'); ?></label>
+					<?php
+					$nationality_array = $this->app_lib->get_nationality();
+					echo form_dropdown("nationality", $nationality_array, set_value("nationality"), "class='form-control' data-plugin-selectTwo
+									data-width='100%' data-minimum-results-for-search='Infinity' ");
+					?>
+					<span class="error"><?php echo form_error('nationality'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('nid_no')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('nid_no'); ?></label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fas fa-id-card"></i></span>
+						<input type="text" class="form-control" name="nid_no" value="<?php echo set_value('nid_no'); ?>">
+					</div>
+					<span class="error"><?php echo form_error('nid_no'); ?></span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('user_role')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('role'); ?> <span class="required">*</span></label>
+					<?php
+					$logged_in_role = loggedin_role_id();
+					$role_list = $this->app_lib->getRoles($logged_in_role);
+					// Customers are storefront accounts (managed under Customers), not
+					// admin/staff users — hide the Customer role from this dropdown.
+					if (defined('ROLE_CUSTOMER_ID')) { unset($role_list[ROLE_CUSTOMER_ID]); }
+					echo form_dropdown("user_role", $role_list, set_value('user_role'), "class='form-control'
+									data-plugin-selectTwo data-width='100%' data-minimum-results-for-search='Infinity' ");
+					?>
+					<span class="error"><?php echo form_error('user_role'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('password')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('password'); ?> <span class="required">*</span></label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
+						<input type="password" class="form-control" name="password" id="password" value="<?php echo set_value('password'); ?>" />
+						<span class="input-group-addon toggle-password" data-target="#password" style="cursor: pointer;">
+							<i class="fas fa-eye"></i>
+						</span>
+					</div>
+					<span class="error"><?php echo form_error('password'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('retype_password')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('retype_password'); ?> <span class="required">*</span></label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
+						<input type="password" class="form-control" name="retype_password" id="retype_password" value="<?php echo set_value('retype_password'); ?>" />
+						<span class="input-group-addon toggle-password" data-target="#retype_password" style="cursor: pointer;">
+							<i class="fas fa-eye"></i>
+						</span>
+					</div>
+					<span class="error"><?php echo form_error('retype_password'); ?></span>
+				</div>
+			</div>
+			<div class="col-md-3 mb-sm">
+				<div class="form-group <?php if (form_error('status')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('status'); ?></label>
+					<?php
+					$status_array = array(
+						'' => translate('select'),
+						'1' => translate('Active'),
+						'2' => translate('Inactive'),
+						'3' => translate('Suspended'),
+						'4' => translate('Blocked')
+					);
+					echo form_dropdown("status", $status_array, set_value("status"), "class='form-control' data-plugin-selectTwo
+									data-width='100%' data-minimum-results-for-search='Infinity' ");
+					?>
+					<span class="error"><?php echo form_error('status'); ?></span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label for="input-file-now"><?php echo translate('profile_picture'); ?></label>
+					<input type="file" name="user_photo" class="dropify" data-allowed-file-extensions="jpg png" data-height="120" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 mb-sm">
+				<div class="form-group <?php if (form_error('address')) echo 'has-error'; ?>">
+					<label class="control-label"><?php echo translate('address'); ?></label>
+					<textarea class="form-control" rows="3" name="address" placeholder="<?php echo translate('address'); ?>"><?php echo set_value('address'); ?></textarea>
+					<span class="error"><?php echo form_error('address'); ?></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="panel-footer">
+		<div class="row">
+			<div class="col-md-offset-10 col-md-2">
+				<button type="submit" name="submit" value="save" class="btn btn btn-success btn-block"> <i class="fas fa-plus-circle"></i> <?php echo translate('save'); ?></button>
+			</div>
+		</div>
+	</footer>
+	<?php echo form_close(); ?>
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Robust DOB to Age auto-calculator function
+        function calculateAge(birthDateString) {
+            if (!birthDateString) return '';
+            var birthDate = new Date(birthDateString);
+            if (isNaN(birthDate.getTime())) {
+                var parts = birthDateString.split(/[-/.]/);
+                if (parts.length === 3) {
+                    if (parts[0].length === 4) {
+                        birthDate = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+                    } else if (parts[2].length === 4) {
+                        birthDate = new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]));
+                    }
+                }
+            }
+            if (isNaN(birthDate.getTime())) return '';
+            var today = new Date();
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            return age >= 0 ? age : 0;
+        }
+
+        // Attach listener for both manual changes and bootstrap datepicker events
+        $('#dob').on('change changeDate', function() {
+            var dobVal = $(this).val();
+            var computedAge = calculateAge(dobVal);
+            $('#age').val(computedAge);
+        });
+    });
+</script>

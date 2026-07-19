@@ -1,0 +1,73 @@
+<?php
+/**
+ * CI3 CLI Tool - Laravel Artisan style for CodeIgniter 3
+ * Usage: php artisan [command] [argument]
+ */
+
+if (php_sapi_name() !== 'cli') {
+    exit("This script can only be run via CLI.\n");
+}
+
+$command = isset($argv[1]) ? $argv[1] : 'help';
+$argument = isset($argv[2]) ? $argv[2] : '';
+
+// Map Laravel-style commands to CI3 controllers/methods
+$mapping = [
+    'migrate'        => 'migrate latest',
+    'migrate:fresh'  => 'migrate fresh',
+    'migrate:status' => 'migrate status',
+    'migrate:rollback' => 'migrate version 0',
+    'migrate:fix'    => 'migrate fix',
+    'db:seed'        => 'migrate seed ' . $argument,
+    'make:migration' => 'migrategenerator run',
+    'make:seed'      => 'migrategenerator seed',
+    'make:controller' => 'migrategenerator controller',
+    'make:model'     => 'migrategenerator model',
+    'schedule:run'   => 'schedule run',
+    'db:backup'      => 'dbtool backup',
+    'queue:work'     => 'queue work',
+    'down'           => 'maintenance down',
+    'up'             => 'maintenance up',
+    'env'            => 'maintenance env',
+    'health'         => 'maintenance health',
+    'route:list'     => 'maintenance routes',
+    'make:faker'     => 'migrategenerator faker',
+    'db:table'       => 'dbtool table',
+    'db:optimize'    => 'dbtool optimize',
+    'clear:logs'     => 'maintenance clear_logs',
+    'clear:cache'    => 'maintenance clear_cache',
+    'make:crud'      => 'migrategenerator crud',
+    'security:scan'  => 'maintenance security_scan',
+    'firewall:block' => 'maintenance firewall_block',
+    'firewall:list'  => 'maintenance firewall_list',
+    'security:scan_uploads' => 'maintenance scan_uploads',
+    'language:sync'  => 'language sync_cli',
+    'cache:permissions_clear' => 'maintenance clear_permission_cache',
+];
+
+if ($command === 'help' || !isset($mapping[$command])) {
+    echo "Artisan CLI Tool Help (CI3)\n";
+    echo "===========================\n";
+    echo "Usage: php artisan [command]\n\n";
+    echo "Available Commands:\n";
+    foreach ($mapping as $key => $val) {
+        echo "  " . str_pad($key, 20) . " -> php index.php $val\n";
+    }
+    exit("\n");
+}
+
+// Prepare the system command
+$ci_cmd = $mapping[$command];
+
+// Pass additional arguments if any
+if (count($argv) > 2) {
+    for ($i = 2; $i < count($argv); $i++) {
+        // Skip if it was already handled as primary argument for specific commands
+        if ($command === 'db:seed' && $i === 2) continue; 
+        $ci_cmd .= ' ' . $argv[$i];
+    }
+}
+
+echo "Running: php index.php $ci_cmd" . PHP_EOL;
+$index_path = __DIR__ . DIRECTORY_SEPARATOR . 'index.php';
+passthru("php \"$index_path\" $ci_cmd");

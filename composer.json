@@ -1,0 +1,14 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^1.12"
+    },
+    "autoload": {
+        "classmap": [
+            "application/core",
+            "application/helpers",
+            "application/libraries",
+            "application/models"
+        ]
+    }
+}

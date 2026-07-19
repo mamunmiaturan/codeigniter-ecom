@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"d:\\\\Projects\\\\auth\"; $env:SECURITY_KEY=\"ci_test_key_github_actions_0000000000000000000000000000000\"; $env:CI_ENV=\"testing\"; php vendor/bin/phpunit --no-coverage tests/User2faTest.php)",
+      "PowerShell(& php \"d:/Projects/auth/vendor/bin/phpunit\" --configuration \"d:/Projects/auth/phpunit.xml\" 2>&1)",
+      "PowerShell($ErrorActionPreference = \"Continue\")",
+      "PowerShell(Get-Content \"d:/Projects/auth/application/logs/smoke_server.err\" -Tail 25 | ForEach-Object { $_ })"
+    ]
+  }
+}
